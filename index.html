@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/ParcellesCOSen_0.js"></script>
+        <script src="data/Voiriescopy_1.js"></script>
+        <script src="data/Trottoirs_2.js"></script>
+        <script src="data/Btit_3.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        function pop_ParcellesCOSen_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Area'] !== null ? Autolinker.link(String(feature.properties['Area'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Demoli'] !== null ? Autolinker.link(String(feature.properties['Demoli'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UNID'] !== null ? Autolinker.link(String(feature.properties['UNID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COS'] !== null ? Autolinker.link(String(feature.properties['COS'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ParcellesCOSen_0_0(feature) {
+            if (feature.properties['COS'] >= 0.000000 && feature.properties['COS'] <= 7.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,235,232,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 7.000000 && feature.properties['COS'] <= 24.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,216,209,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 24.000000 && feature.properties['COS'] <= 38.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(249,197,185,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 38.000000 && feature.properties['COS'] <= 49.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(245,178,161,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 49.000000 && feature.properties['COS'] <= 58.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(242,159,138,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 58.000000 && feature.properties['COS'] <= 66.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,140,114,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 66.000000 && feature.properties['COS'] <= 74.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(235,121,91,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 74.000000 && feature.properties['COS'] <= 83.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,102,67,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 83.000000 && feature.properties['COS'] <= 93.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(228,83,43,1.0)',
+            }
+            }
+            if (feature.properties['COS'] >= 93.000000 && feature.properties['COS'] <= 100.000000 ) {
+                return {
+                pane: 'pane_ParcellesCOSen_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(224,64,20,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_ParcellesCOSen_0');
+        map.getPane('pane_ParcellesCOSen_0').style.zIndex = 400;
+        map.getPane('pane_ParcellesCOSen_0').style['mix-blend-mode'] = 'normal';
+        var layer_ParcellesCOSen_0 = new L.geoJson(json_ParcellesCOSen_0, {
+            attribution: '',
+            pane: 'pane_ParcellesCOSen_0',
+            onEachFeature: pop_ParcellesCOSen_0,
+            style: style_ParcellesCOSen_0_0,
+        });
+        bounds_group.addLayer(layer_ParcellesCOSen_0);
+        map.addLayer(layer_ParcellesCOSen_0);
+        function pop_Voiriescopy_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Hiérarchie'] !== null ? Autolinker.link(String(feature.properties['Hiérarchie'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Niveau'] !== null ? Autolinker.link(String(feature.properties['Niveau'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Voiriescopy_1_0() {
+            return {
+                pane: 'pane_Voiriescopy_1',
+                opacity: 1,
+                color: 'rgba(204,204,204,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Voiriescopy_1');
+        map.getPane('pane_Voiriescopy_1').style.zIndex = 401;
+        map.getPane('pane_Voiriescopy_1').style['mix-blend-mode'] = 'normal';
+        var layer_Voiriescopy_1 = new L.geoJson(json_Voiriescopy_1, {
+            attribution: '',
+            pane: 'pane_Voiriescopy_1',
+            onEachFeature: pop_Voiriescopy_1,
+            style: style_Voiriescopy_1_0,
+        });
+        bounds_group.addLayer(layer_Voiriescopy_1);
+        map.addLayer(layer_Voiriescopy_1);
+        function pop_Trottoirs_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Trottoirs_2_0() {
+            return {
+                pane: 'pane_Trottoirs_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(50,63,70,0.5)',
+            }
+        }
+        map.createPane('pane_Trottoirs_2');
+        map.getPane('pane_Trottoirs_2').style.zIndex = 402;
+        map.getPane('pane_Trottoirs_2').style['mix-blend-mode'] = 'normal';
+        var layer_Trottoirs_2 = new L.geoJson(json_Trottoirs_2, {
+            attribution: '',
+            pane: 'pane_Trottoirs_2',
+            onEachFeature: pop_Trottoirs_2,
+            style: style_Trottoirs_2_0,
+        });
+        bounds_group.addLayer(layer_Trottoirs_2);
+        map.addLayer(layer_Trottoirs_2);
+        function pop_Btit_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Id</strong><br />' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fonction'] !== null ? Autolinker.link(String(feature.properties['Fonction'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Size</th>\
+                        <td>' + (feature.properties['Size'] !== null ? Autolinker.link(String(feature.properties['Size'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Height</strong><br />' + (feature.properties['Height'] !== null ? Autolinker.link(String(feature.properties['Height'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['_ELEVmean'] !== null ? Autolinker.link(String(feature.properties['_ELEVmean'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Btit_3_0() {
+            return {
+                pane: 'pane_Btit_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(127,128,128,0.441)',
+            }
+        }
+        map.createPane('pane_Btit_3');
+        map.getPane('pane_Btit_3').style.zIndex = 403;
+        map.getPane('pane_Btit_3').style['mix-blend-mode'] = 'normal';
+        var layer_Btit_3 = new L.geoJson(json_Btit_3, {
+            attribution: '',
+            pane: 'pane_Btit_3',
+            onEachFeature: pop_Btit_3,
+            style: style_Btit_3_0,
+        });
+        bounds_group.addLayer(layer_Btit_3);
+        map.addLayer(layer_Btit_3);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Btit_3.png" /> Bâtit': layer_Btit_3,'<img src="legend/Trottoirs_2.png" /> Trottoirs': layer_Trottoirs_2,'<img src="legend/Voiriescopy_1.png" /> Voiries copy': layer_Voiriescopy_1,'Parcelles COS (en %)<br /><table><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_070.png" /></td><td> 0 - 7 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_7241.png" /></td><td> 7 - 24 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_24382.png" /></td><td> 24 - 38 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_38493.png" /></td><td> 38 - 49 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_49584.png" /></td><td> 49 - 58 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_58665.png" /></td><td> 58 - 66 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_66746.png" /></td><td> 66 - 74 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_74837.png" /></td><td> 74 - 83 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_83938.png" /></td><td> 83 - 93 </td></tr><tr><td style="text-align: center;"><img src="legend/ParcellesCOSen_0_931009.png" /></td><td> 93 - 100 </td></tr></table>': layer_ParcellesCOSen_0,}).addTo(map);L.control.scale({position: 'bottomleft', maxWidth: 100, metric: true, imperial: false, updateWhenIdle: false}).addTo(map);
+        setBounds();
+        resetLabels([layer_ParcellesCOSen_0,layer_Voiriescopy_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_ParcellesCOSen_0,layer_Voiriescopy_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_ParcellesCOSen_0,layer_Voiriescopy_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_ParcellesCOSen_0,layer_Voiriescopy_1]);
+        });
+        </script>
+    </body>
+</html>
